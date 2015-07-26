@@ -18,9 +18,15 @@
  * @see template_process_islandora_solr_metadata_display()
  */
 ?>
+<<<<<<< HEAD
 <?php if ($found):?>
    <?php if (!(empty($solr_fields) && variable_get('islandora_solr_metadata_omit_empty_values', FALSE))):?>
 <fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata"');?>>
+=======
+<?php if ($found):
+  if (!(empty($solr_fields) && variable_get('islandora_solr_metadata_omit_empty_values', FALSE))):?>
+<fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata collapsible collapsed"');?>>
+>>>>>>> db83c4f218b2969021535f2044b4b3ae77d48ba4
   <legend><span class="fieldset-legend"><?php print t('Details'); ?></span></legend>
   <div class="fieldset-wrapper">
     <dl xmlns:dcterms="http://purl.org/dc/terms/" class="islandora-inline-metadata islandora-metadata-fields">
@@ -30,14 +36,14 @@
           <?php print $value['display_label']; ?>
         </dt>
         <dd class="<?php print $row_field == 0 ? ' first' : ''; ?>">
-          <?php print check_markup(implode("\n", $value['value']), 'filtered_html'); ?>
+          <?php print check_markup(implode("\n", $value['value']), 'islandora_solr_metadata_filtered_html'); ?>
         </dd>
         <?php $row_field++; ?>
       <?php endforeach; ?>
     </dl>
   </div>
 </fieldset>
-  <?php endif; ?>
+<?php endif; ?>
 <?php else: ?>
   <fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata"');?>>
     <legend><span class="fieldset-legend"><?php print t('Details'); ?></span></legend>
